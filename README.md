@@ -10,9 +10,9 @@
 ![Tests](https://img.shields.io/badge/Tests-25%20passing-111827?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-MIT-f59e0b?style=for-the-badge)
 
-**Finance & Grants** · **Repo 19/50** · **No backend. No login. Client data stays local.**
+**Finance & Grants** · **No backend. No login. Client data stays local.**
 
-[Live app](https://volta-npo.github.io/19-sponsorship-deck-lab/) · [Report an issue](https://github.com/volta-npo/19-sponsorship-deck-lab/issues) · [Volta](https://voltanpo.org)
+[Live app](https://volta-npo.github.io/sponsorship-deck-lab/) · [Report an issue](https://github.com/volta-npo/sponsorship-deck-lab/issues) · [Volta](https://voltanpo.org)
 
 </div>
 
@@ -101,6 +101,16 @@ sequenceDiagram
 
 ---
 
+## 🟦 TypeScript-first
+
+This repository is authored in **TypeScript**. The checked-in JavaScript files are compiled artifacts so the project can run directly on GitHub Pages without a build server.
+
+- Source: `src/**/*.ts` and `test/**/*.ts`
+- Build: `npm run build`
+- Runtime artifacts: `src/**/*.js` for static hosting
+
+---
+
 ## 🚀 Features
 
 | Area | What ships in v3 |
@@ -157,8 +167,9 @@ sequenceDiagram
 ## 🛠️ Quick start
 
 ```bash
-git clone https://github.com/volta-npo/19-sponsorship-deck-lab.git
+git clone https://github.com/volta-npo/sponsorship-deck-lab.git
 cd 19-sponsorship-deck-lab
+npm install
 npm test
 npm start
 ```

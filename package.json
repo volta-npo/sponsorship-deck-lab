@@ -5,11 +5,12 @@
   "type": "module",
   "description": "A repeatable deck structure for turning community impact into sponsor-ready partnership asks.",
   "scripts": {
-    "test": "node --test",
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test test/*.test.js",
     "start": "python3 -m http.server 4173",
-    "validate": "node --test",
-    "certify": "node --test test/v3.test.js",
-    "test:all": "node --test"
+    "validate": "npm test",
+    "certify": "npm run build && node --test test/v3.test.js",
+    "test:all": "npm test"
   },
   "keywords": [
     "digital-equity",
@@ -22,14 +23,18 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/volta-npo/19-sponsorship-deck-lab.git"
+    "url": "git+https://github.com/volta-npo/sponsorship-deck-lab.git"
   },
-  "homepage": "https://volta-npo.github.io/19-sponsorship-deck-lab/",
+  "homepage": "https://volta-npo.github.io/sponsorship-deck-lab/",
   "bugs": {
-    "url": "https://github.com/volta-npo/19-sponsorship-deck-lab/issues"
+    "url": "https://github.com/volta-npo/sponsorship-deck-lab/issues"
   },
   "author": "Volta OSS Division <volta.npo@gmail.com>",
   "engines": {
     "node": ">=20"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.3",
+    "@types/node": "^24.0.0"
   }
 }

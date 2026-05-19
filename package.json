@@ -1,0 +1,35 @@
+{
+  "name": "@volta-oss/sponsorship-deck-lab",
+  "version": "3.0.0",
+  "private": false,
+  "type": "module",
+  "description": "A repeatable deck structure for turning community impact into sponsor-ready partnership asks.",
+  "scripts": {
+    "test": "node --test",
+    "start": "python3 -m http.server 4173",
+    "validate": "node --test",
+    "certify": "node --test test/v3.test.js",
+    "test:all": "node --test"
+  },
+  "keywords": [
+    "digital-equity",
+    "finance-grants",
+    "local-first",
+    "oss",
+    "v3-production",
+    "volta"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/volta-npo/19-sponsorship-deck-lab.git"
+  },
+  "homepage": "https://volta-npo.github.io/19-sponsorship-deck-lab/",
+  "bugs": {
+    "url": "https://github.com/volta-npo/19-sponsorship-deck-lab/issues"
+  },
+  "author": "Volta OSS Division <volta.npo@gmail.com>",
+  "engines": {
+    "node": ">=20"
+  }
+}

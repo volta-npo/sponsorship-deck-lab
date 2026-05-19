@@ -1,0 +1,14 @@
+services:
+  app:
+    build: .
+    image: volta-oss/sponsorship-deck-lab:local
+    ports:
+      - "4173:8080"
+    env_file:
+      - .env.example
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped

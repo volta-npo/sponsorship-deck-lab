@@ -66,7 +66,7 @@ export declare function summarizeWorkspaceAnalytics(workspaceState: any, readine
     exportCount: any;
     readiness: number;
     roles: {
-        role: "owner" | "mentor" | "student" | "client";
+        role: "owner" | "client" | "mentor" | "student";
         count: any;
     }[];
 };

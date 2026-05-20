@@ -8,7 +8,7 @@ function loadWorkspaceState() {
   try {
     const raw = localStorage.getItem(key);
     if (raw) return JSON.parse(raw);
-  } catch {}
+  } catch { console.warn('Saved local data could not be read and was reset.'); }
   return createSaasWorkspace(config);
 }
 
@@ -53,7 +53,7 @@ function renderSaasWorkspace() {
   section.innerHTML = `
     <div class="v1-head">
       <div><p class="eyebrow">SaaS workspace layer</p><h2>Client portfolio dashboard</h2><p class="muted">Manage multiple clients, reviewer roles, export history, and local-first workspace bundles.</p></div>
-      <div class="button-row no-print"><button id="saas-add" class="secondary">New Client</button><button id="saas-export">Export Bundle</button><label class="secondary button-like">Import Bundle<input id="saas-import" type="file" accept="application/json" hidden /></label></div>
+      <div class="button-row no-print"><label class="inline-field">Workspace name<input id="saas-new-workspace" type="text" placeholder="Client or workspace name" /></label><button id="saas-add" class="secondary">New Client</button><button id="saas-export">Export Bundle</button><label class="secondary button-like">Import Bundle<input id="saas-import" type="file" accept="application/json" hidden /></label></div>
     </div>
     <div class="v1-metrics">
       <article class="metric"><strong>${analytics.workspaceCount}</strong><span>Client workspaces</span><p>${esc(analytics.activeClient)}</p></article>
@@ -62,9 +62,16 @@ function renderSaasWorkspace() {
     </div>
     <label>Active client<select id="saas-active">${workspaceState.workspaces.map((workspace) => `<option value="${esc(workspace.id)}" ${workspace.id === workspaceState.activeWorkspaceId ? 'selected' : ''}>${esc(workspace.name)} · ${esc(workspace.status)}</option>`).join('')}</select></label>`;
   document.querySelector('#saas-add')?.addEventListener('click', () => {
-    const name = prompt('Client or workspace name?');
-    if (!name) return;
+    const input = document.querySelector('#saas-new-workspace') as HTMLInputElement | null;
+    const name = input?.value.trim() ?? '';
+    if (!input || !name) {
+      input?.setAttribute('aria-invalid', 'true');
+      input?.focus();
+      return;
+    }
+    input?.removeAttribute('aria-invalid');
     addWorkspace(workspaceState, name);
+    input.value = '';
     saveWorkspaceState();
     renderSaasWorkspace();
   });

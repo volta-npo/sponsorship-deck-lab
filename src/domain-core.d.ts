@@ -48,6 +48,7 @@ export declare function generateDomainSaasPlan(config: any, domain: any, state: 
 };
 export declare function generateDomainArtifacts(config: any, domain: any, state: any): any;
 export declare function buildDomainMarkdown(config: any, domain: any, state: any): string;
+export { buildSaasExpansionSuite, buildSaasSuiteMarkdown, summarizeSaasSuite } from './saas-suite.js';
 export declare function applyDomainSample(domain: any): {
     version: string;
     values: {};

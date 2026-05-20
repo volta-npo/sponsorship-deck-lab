@@ -98,6 +98,7 @@ export function buildDomainMarkdown(config, domain, state) {
     domain.checks.forEach(c => lines.push(`- ${c}`));
     return lines.join('\n');
 }
+export { buildSaasExpansionSuite, buildSaasSuiteMarkdown, summarizeSaasSuite } from './saas-suite.js';
 export function applyDomainSample(domain) {
     const state = createDomainState(domain);
     domain.fields.forEach((field, index) => {
